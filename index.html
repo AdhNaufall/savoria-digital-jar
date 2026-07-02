@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savoria Digital Jar</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Random Wish Modal -->
+  <div id="wishModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+      <button onclick="closeModal()" class="btn-close">
+        <i data-lucide="x"></i>
+      </button>
+      
+      <div class="modal-icon">
+        <i data-lucide="sparkles"></i>
+      </div>
+      
+      <p id="modalWishDate" class="modal-date">
+        12 AUG 2024
+      </p>
+      
+      <div id="modalWishList">
+        <!-- populated by js -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- 1. HEADER -->
+    <header>
+      <div class="header-title">
+        <h1>Halo, Naufal <span>✨</span></h1>
+        <p>Apa yang kamu syukuri hari ini?</p>
+      </div>
+      <div class="date-badge">
+        <span id="currentDate"></span>
+      </div>
+    </header>
+
+    <!-- 2. MAIN CONTENT -->
+    <main>
+      
+      <!-- LEFT COLUMN: Input Form -->
+      <section class="form-section">
+        <!-- decorative blur behind form -->
+        <div class="form-blur-bg"></div>
+
+        <div id="formContainer" class="form-container">
+          
+          <!-- Input 1 -->
+          <div class="input-group">
+            <span class="input-number">01</span>
+            <input id="wish1" type="text" class="glass-input" placeholder="Kopi pagi ini terasa sangat enak..." oninput="checkFormValidity()">
+          </div>
+          
+          <!-- Input 2 -->
+          <div class="input-group">
+            <span class="input-number">02</span>
+            <input id="wish2" type="text" class="glass-input" placeholder="Kerjaan selesai lebih awal..." oninput="checkFormValidity()">
+          </div>
+          
+          <!-- Input 3 -->
+          <div class="input-group">
+            <span class="input-number">03</span>
+            <input id="wish3" type="text" class="glass-input" placeholder="Cuaca hari ini cerah..." oninput="checkFormValidity()">
+          </div>
+          
+          <button onclick="handleSave()" id="saveBtn" disabled class="btn-submit">
+            <span>Simpan ke Toples</span>
+            <i data-lucide="inbox"></i>
+          </button>
+          
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Jar Visual & Interaction -->
+      <section class="jar-section">
+        
+        <!-- Jar Visual -->
+        <div class="animate-float">
+          <div class="jar-wrapper" id="jarWrapper">
+            
+            <!-- Lid -->
+            <div id="jarLid" class="jar-lid"></div>
+            
+            <!-- Jar Body -->
+            <div class="jar-body">
+              <div class="glass-highlight"></div>
+              <!-- Visual Papers inside Jar -->
+              <div id="jarContainer" class="jar-container">
+                <!-- Dynamically filled by JS -->
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <button onclick="pickRandomWish()" class="btn-random">
+          <i data-lucide="shuffle"></i>
+          <span>Buka Toples Secara Acak</span>
+        </button>
+        
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
