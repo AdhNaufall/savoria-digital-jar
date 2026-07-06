@@ -208,5 +208,45 @@ function closeModal() {
   lid.classList.remove('lid-open');
 }
 
+function openHistoryModal() {
+  const historyList = document.getElementById('historyList');
+  historyList.innerHTML = '';
+  
+  if (memories.length === 0) {
+    historyList.innerHTML = '<p style="text-align:center; color:#a0aec0;">Belum ada kenangan yang tersimpan.</p>';
+  } else {
+    // Sort memories by date descending
+    const sortedMemories = [...memories].sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    sortedMemories.forEach(m => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'history-item';
+      
+      const dateDiv = document.createElement('div');
+      dateDiv.className = 'history-date';
+      dateDiv.innerText = formatDate(m.date);
+      itemDiv.appendChild(dateDiv);
+      
+      m.wishes.forEach(w => {
+        const wishDiv = document.createElement('div');
+        wishDiv.className = 'history-wish serif-text';
+        wishDiv.innerText = `"${w}"`;
+        itemDiv.appendChild(wishDiv);
+      });
+      
+      historyList.appendChild(itemDiv);
+    });
+  }
+  
+  const modal = document.getElementById('historyModal');
+  modal.classList.remove('hidden');
+  lucide.createIcons();
+}
+
+function closeHistoryModal() {
+  const modal = document.getElementById('historyModal');
+  modal.classList.add('hidden');
+}
+
 // Init
 loadMemories();

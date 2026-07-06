@@ -503,3 +503,112 @@ main {
   0% { transform: scale(0.9) translateY(20px); opacity: 0; } 
   100% { transform: scale(1) translateY(0); opacity: 1; } 
 }
+
+/* HISTORY MODAL & TIMELINE */
+.history-modal-content {
+  max-width: 32rem;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1a202c;
+  font-size: 1.75rem;
+}
+
+.history-list {
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Custom scrollbar for history list */
+.history-list::-webkit-scrollbar {
+  width: 6px;
+}
+.history-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+.history-list::-webkit-scrollbar-thumb {
+  background: rgba(56, 178, 155, 0.5);
+  border-radius: 4px;
+}
+
+.history-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 2px solid rgba(56, 178, 155, 0.3);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.history-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38b29b;
+}
+
+.history-date {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38b29b;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.history-wish {
+  background: rgba(255,255,255,0.7);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.9);
+  color: #2d3748;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.btn-history {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  color: #718096;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.btn-history:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #2d3748;
+}
+
+.btn-history:active {
+  transform: scale(0.95);
+}
+
+.btn-history svg {
+  width: 1rem;
+  height: 1rem;
+}

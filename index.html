@@ -38,6 +38,26 @@
     </div>
   </div>
 
+  <!-- History Modal -->
+  <div id="historyModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeHistoryModal()"></div>
+    <div class="modal-content history-modal-content">
+      <button onclick="closeHistoryModal()" class="btn-close">
+        <i data-lucide="x"></i>
+      </button>
+      
+      <div class="modal-icon">
+        <i data-lucide="history"></i>
+      </div>
+      
+      <h2 class="history-title serif-text">Jejak Kenangan</h2>
+      
+      <div id="historyList" class="history-list">
+        <!-- populated by js -->
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     
     <!-- 1. HEADER -->
@@ -112,6 +132,11 @@
         <button onclick="pickRandomWish()" class="btn-random">
           <i data-lucide="shuffle"></i>
           <span>Buka Toples Secara Acak</span>
+        </button>
+
+        <button onclick="openHistoryModal()" class="btn-history">
+          <i data-lucide="history"></i>
+          <span>Lihat Semua Kenangan</span>
         </button>
         
       </section>
