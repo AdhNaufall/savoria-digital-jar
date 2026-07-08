@@ -100,6 +100,16 @@ async function handleSave() {
       btn.innerHTML = `<i data-lucide="check"></i><span>Berhasil!</span>`;
       lucide.createIcons();
       
+      // Trigger Confetti Effect
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#38b29b', '#45818e', '#fdf4d8', '#46c6ad']
+        });
+      }
+      
       setTimeout(() => {
         btn.innerHTML = originalHtml;
         lucide.createIcons();
