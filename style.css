@@ -618,3 +618,17 @@ main {
   width: 1rem;
   height: 1rem;
 }
+
+/* TYPEWRITER EFFECT */
+.tw-cursor {
+  font-weight: 400;
+  color: #38b29b;
+  animation: blinkCursor 0.8s step-end infinite;
+  transition: opacity 0.5s ease;
+  margin-left: 2px;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

@@ -196,7 +196,7 @@ function pickRandomWish() {
       listContainer.innerHTML = `
          <div class="modal-wish-card">
            <span class="star-icon serif-text">✨</span>
-           <p class="serif-text">"${selected.text}"</p>
+           <p class="serif-text" id="typewriterText"></p>
          </div>
       `;
       
@@ -205,6 +205,29 @@ function pickRandomWish() {
       
       flyingPaper.remove();
       isPicking = false;
+
+      // Typewriter Effect
+      const textElement = document.getElementById('typewriterText');
+      const textToType = `"${selected.text}"`;
+      textElement.innerHTML = '<span id="tw-content"></span><span id="tw-cursor" class="tw-cursor">|</span>';
+      
+      const contentEl = document.getElementById('tw-content');
+      const cursorEl = document.getElementById('tw-cursor');
+      
+      let i = 0;
+      function typeWriter() {
+        if (i < textToType.length) {
+          contentEl.innerHTML += textToType.charAt(i);
+          i++;
+          setTimeout(typeWriter, 35);
+        } else {
+          setTimeout(() => { 
+            if(cursorEl) cursorEl.style.opacity = '0'; 
+          }, 1500);
+        }
+      }
+      
+      setTimeout(typeWriter, 400);
     }, 800);
     
   }, 200);
