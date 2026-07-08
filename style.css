@@ -6,12 +6,9 @@
 }
 
 body {
-  background-color: #fcf7ec;
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(168, 52%, 85%, 1) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(43, 100%, 88%, 1) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(168, 52%, 85%, 0.7) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(43, 100%, 88%, 0.8) 0px, transparent 50%);
+  background: linear-gradient(-45deg, #d4f0e7, #fdf4d8, #bae8dc, #fcebba);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
   background-attachment: fixed;
   font-family: 'Outfit', sans-serif;
   color: #2d3748;
@@ -342,6 +339,12 @@ main {
 }
 
 /* ANIMATIONS */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
